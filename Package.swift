@@ -15,14 +15,26 @@ let package = Package(
             name: "FFmpegKitiOS",
             type: .dynamic,
             targets: [
-                "GDIFFmpegKit"
-            ]),
+                "GDIFFmpegKit",
+                "GDIFFmpegKitiOS",
+            ]
+        ),
+
+        .library(
+            name: "FFmpegKitmacOS",
+            type: .dynamic,
+            targets: [
+                "GDIFFmpegKit",
+                "GDIFFmpegKitmacOS",
+            ]
+        ),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
     ],
     targets: [
+        // iOS specific frameworks
         .binaryTarget(name: "ffmpegkit-ios", path: "ffmpeg-kit/ios/ffmpegkit.xcframework"),
         .binaryTarget(name: "libavcodec-ios", path: "ffmpeg-kit/ios/libavcodec.xcframework"),
         .binaryTarget(name: "libavdevice-ios", path: "ffmpeg-kit/ios/libavdevice.xcframework"),
@@ -32,21 +44,25 @@ let package = Package(
         .binaryTarget(name: "libswresample-ios", path: "ffmpeg-kit/ios/libswresample.xcframework"),
         .binaryTarget(name: "libswscale-ios", path: "ffmpeg-kit/ios/libswscale.xcframework"),
 
-//        .target(
-//            name: "Dependencies",
-//            linkerSettings: [
-//                .linkedLibrary("z"),
-//                .linkedLibrary("bz2"),
-//                .linkedLibrary("iconv"),
-//                .linkedLibrary("c++"),
-//            ]
-//        ),
+        // macOS specific frameworks
+        .binaryTarget(name: "ffmpegkit-macos", path: "ffmpeg-kit/macos/ffmpegkit.xcframework"),
+        .binaryTarget(name: "libavcodec-macos", path: "ffmpeg-kit/macos/libavcodec.xcframework"),
+        .binaryTarget(name: "libavdevice-macos", path: "ffmpeg-kit/macos/libavdevice.xcframework"),
+        .binaryTarget(name: "libavfilter-macos", path: "ffmpeg-kit/macos/libavfilter.xcframework"),
+        .binaryTarget(name: "libavformat-macos", path: "ffmpeg-kit/macos/libavformat.xcframework"),
+        .binaryTarget(name: "libavutil-macos", path: "ffmpeg-kit/macos/libavutil.xcframework"),
+        .binaryTarget(name: "libswresample-macos", path: "ffmpeg-kit/macos/libswresample.xcframework"),
+        .binaryTarget(name: "libswscale-macos", path: "ffmpeg-kit/macos/libswscale.xcframework"),
 
-
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages this package depends on.
+        // Target that includes common swift files for each platform. This contains the source code
+        // that is used to wrap each platform specific target of ffmpegkit.
         .target(
-            name: "GDIFFmpegKit",
+            name: "GDIFFmpegKit"
+        ),
+
+        // iOS library target
+        .target(
+            name: "GDIFFmpegKitiOS",
             dependencies: [
                 "ffmpegkit-ios",
                 "libavcodec-ios",
@@ -56,7 +72,6 @@ let package = Package(
                 "libavutil-ios",
                 "libswresample-ios",
                 "libswscale-ios",
-//                "Dependencies"
             ],
             linkerSettings: [
                 .linkedLibrary("z"),
@@ -65,8 +80,31 @@ let package = Package(
                 .linkedLibrary("c++"),
             ]
         ),
+
+        // macOS library target
+        .target(
+            name: "GDIFFmpegKitmacOS",
+            dependencies: [
+                "ffmpegkit-macos",
+                "libavcodec-macos",
+                "libavdevice-macos",
+                "libavfilter-macos",
+                "libavformat-macos",
+                "libavutil-macos",
+                "libswresample-macos",
+                "libswscale-macos",
+            ],
+            linkerSettings: [
+                .linkedLibrary("z"),
+                .linkedLibrary("bz2"),
+                .linkedLibrary("iconv"),
+                .linkedLibrary("c++"),
+            ]
+        ),
+
+        // Tests for the Swift wrapper code for both platforms
         .testTarget(
-            name: "GDIFFmpegKitiOSTests",
+            name: "GDIFFmpegKitTests",
             dependencies: ["GDIFFmpegKit"]),
     ]
 )

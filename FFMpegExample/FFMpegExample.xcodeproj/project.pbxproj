@@ -13,8 +13,8 @@
 		777E21E3279C8A9600F0AD25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 777E21E1279C8A9600F0AD25 /* Main.storyboard */; };
 		777E21E5279C8A9600F0AD25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 777E21E4279C8A9600F0AD25 /* Assets.xcassets */; };
 		777E21E8279C8A9600F0AD25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 777E21E6279C8A9600F0AD25 /* LaunchScreen.storyboard */; };
-		777E21FA279C902A00F0AD25 /* FFmpegKitiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 777E21F9279C902A00F0AD25 /* FFmpegKitiOS */; };
-		777E21FB279C902A00F0AD25 /* FFmpegKitiOS in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 777E21F9279C902A00F0AD25 /* FFmpegKitiOS */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		777E21FD279C93E100F0AD25 /* FFmpegKitiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 777E21FC279C93E100F0AD25 /* FFmpegKitiOS */; };
+		777E21FE279C93E100F0AD25 /* FFmpegKitiOS in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 777E21FC279C93E100F0AD25 /* FFmpegKitiOS */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +24,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				777E21FB279C902A00F0AD25 /* FFmpegKitiOS in Embed Frameworks */,
+				777E21FE279C93E100F0AD25 /* FFmpegKitiOS in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,7 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				777E21FA279C902A00F0AD25 /* FFmpegKitiOS in Frameworks */,
+				777E21FD279C93E100F0AD25 /* FFmpegKitiOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +112,7 @@
 			);
 			name = FFMpegExample;
 			packageProductDependencies = (
-				777E21F9279C902A00F0AD25 /* FFmpegKitiOS */,
+				777E21FC279C93E100F0AD25 /* FFmpegKitiOS */,
 			);
 			productName = FFMpegExample;
 			productReference = 777E21D8279C8A9600F0AD25 /* FFMpegExample.app */;
@@ -393,7 +393,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		777E21F9279C902A00F0AD25 /* FFmpegKitiOS */ = {
+		777E21FC279C93E100F0AD25 /* FFmpegKitiOS */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FFmpegKitiOS;
 		};
