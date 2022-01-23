@@ -8,7 +8,10 @@
 import Foundation
 import ffmpegkit
 
-// ffprobe https://rss.art19.com/episodes/6dc9aa36-830d-49f3-83a4-5e60957d780d.mp3 -hide_banner -print_format json -show_format -v panic -show_chapters
+
+/// Swift wrapper of ffprobe that aims to add the benefits of Swift, such as type checking and async/await support.
+///
+/// This does not include all options, and is strictly built to handle my current needs for interacting with ffprobe.
 public struct FFProbe {
 
     public enum Option {
@@ -16,6 +19,7 @@ public struct FFProbe {
         case printFormat(PrintFormat)
         case showFormat
         case showChapters
+        case showStreams
         case logLevel(LogLevel)
 
         public enum PrintFormat: String {
@@ -40,27 +44,39 @@ public struct FFProbe {
             case .showChapters:
                 return "-show_chapters"
 
+            case .showStreams:
+                return "-show_streams"
+
             case .logLevel(let level):
                 return "-loglevel \(level.rawValue)"
             }
         }
     }
 
-    public enum ProbeError: Error {
+    public enum ProbeError: LocalizedError {
         case invalidSession
         case commandFailed(ReturnCode)
+
+        public var errorDescription: String? {
+            switch self {
+            case .invalidSession:
+                return "A session could not created for the command."
+
+            case .commandFailed(let returnCode):
+                return "Command failed with return code: \(returnCode.getValue())"
+            }
+        }
     }
 
-
+    /// Asynchronously executes a command to ffprobe.
+    ///
+    /// - Parameters:
+    ///   - input: The URL to probe.
+    ///   - options: The options provided to ffprobe.
+    /// - Returns: The output generated from the ffprobe command.
     public static func run(input: URL, options: [Option]) async throws -> String {
-
         let json: String = try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<String, Error>) in
-            let inputCommand = "-i " + input.absoluteString
-
-            var commandStrings = options.map { $0.string }
-            commandStrings.append(inputCommand)
-
-            let command = commandStrings.joined(separator: " ")
+            let command = command(input: input, options: options)
 
             FFprobeKit.executeAsync(command) { session in
                 guard let session = session else {
@@ -80,5 +96,51 @@ public struct FFProbe {
         }
 
         return json
+    }
+
+    /// Synchronously executes a command to ffprobe.
+    ///
+    /// - Parameters:
+    ///   - input: The URL to probe.
+    ///   - options: The options provided to ffprobe.
+    /// - Returns: The output generated from the ffprobe command.
+    public static func execute(input: URL, options: [Option]) throws -> String {
+        let command = command(input: input, options: options)
+
+        guard let session = FFprobeKit.execute(command) else {
+            throw ProbeError.invalidSession
+        }
+
+        let returnCode: ReturnCode = session.getReturnCode()
+
+        if returnCode.isValueSuccess(), let output = session.getOutput() {
+            return output
+        }
+        else {
+            throw ProbeError.commandFailed(returnCode)
+        }
+    }
+
+    /// Generates an ffprobe command with a given input URL and options.
+    ///
+    /// - Parameters:
+    ///   - input: The URL to probe.
+    ///   - options: The options to provide to ffprobe.
+    /// - Returns: A string defining the command for ffprobe combining the provided input and options.
+    internal static func command(input: URL, options: [Option]) -> String {
+        let inputCommand: String
+
+        if input.isFileURL {
+            inputCommand = "-i '\(input.path)'"
+        }
+        else {
+            inputCommand = "-i " + input.absoluteString
+        }
+
+        var commandStrings = options.map { $0.string }
+        commandStrings.append(inputCommand)
+
+        let command = commandStrings.joined(separator: " ")
+        return command
     }
 }
