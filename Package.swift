@@ -6,26 +6,37 @@ import PackageDescription
 let package = Package(
     name: "FFmpegKit",
     platforms: [
-        .macOS("10.15.4"),
-        .iOS("13.4")
+        .macOS(.v10_15),
+        .iOS("12.1")
     ],
     products: [
-        // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "FFmpegKitiOS",
-            type: .dynamic,
             targets: [
-                "GDIFFmpegKit",
-                "GDIFFmpegKitiOS",
+                "ffmpegkit-ios",
+                "libavcodec-ios",
+                "libavdevice-ios",
+                "libavfilter-ios",
+                "libavformat-ios",
+                "libavutil-ios",
+                "libswresample-ios",
+                "libswscale-ios",
+                "Common",
             ]
         ),
 
         .library(
             name: "FFmpegKitmacOS",
-            type: .dynamic,
             targets: [
-                "GDIFFmpegKit",
-                "GDIFFmpegKitmacOS",
+                "ffmpegkit-macos",
+                "libavcodec-macos",
+                "libavdevice-macos",
+                "libavfilter-macos",
+                "libavformat-macos",
+                "libavutil-macos",
+                "libswresample-macos",
+                "libswscale-macos",
+                "Common",
             ]
         ),
     ],
@@ -54,25 +65,9 @@ let package = Package(
         .binaryTarget(name: "libswresample-macos", path: "ffmpeg-kit/macos/libswresample.xcframework"),
         .binaryTarget(name: "libswscale-macos", path: "ffmpeg-kit/macos/libswscale.xcframework"),
 
-        // Target that includes common swift files for each platform. This contains the source code
-        // that is used to wrap each platform specific target of ffmpegkit.
+        // linkages
         .target(
-            name: "GDIFFmpegKit"
-        ),
-
-        // iOS library target
-        .target(
-            name: "GDIFFmpegKitiOS",
-            dependencies: [
-                "ffmpegkit-ios",
-                "libavcodec-ios",
-                "libavdevice-ios",
-                "libavfilter-ios",
-                "libavformat-ios",
-                "libavutil-ios",
-                "libswresample-ios",
-                "libswscale-ios",
-            ],
+            name: "Common",
             linkerSettings: [
                 .linkedLibrary("z"),
                 .linkedLibrary("bz2"),
@@ -80,31 +75,5 @@ let package = Package(
                 .linkedLibrary("c++"),
             ]
         ),
-
-        // macOS library target
-        .target(
-            name: "GDIFFmpegKitmacOS",
-            dependencies: [
-                "ffmpegkit-macos",
-                "libavcodec-macos",
-                "libavdevice-macos",
-                "libavfilter-macos",
-                "libavformat-macos",
-                "libavutil-macos",
-                "libswresample-macos",
-                "libswscale-macos",
-            ],
-            linkerSettings: [
-                .linkedLibrary("z"),
-                .linkedLibrary("bz2"),
-                .linkedLibrary("iconv"),
-                .linkedLibrary("c++"),
-            ]
-        ),
-
-        // Tests for the Swift wrapper code for both platforms
-        .testTarget(
-            name: "GDIFFmpegKitTests",
-            dependencies: ["GDIFFmpegKit"]),
     ]
 )

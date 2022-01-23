@@ -13,8 +13,12 @@
 		777E21E3279C8A9600F0AD25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 777E21E1279C8A9600F0AD25 /* Main.storyboard */; };
 		777E21E5279C8A9600F0AD25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 777E21E4279C8A9600F0AD25 /* Assets.xcassets */; };
 		777E21E8279C8A9600F0AD25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 777E21E6279C8A9600F0AD25 /* LaunchScreen.storyboard */; };
-		777E21FD279C93E100F0AD25 /* FFmpegKitiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 777E21FC279C93E100F0AD25 /* FFmpegKitiOS */; };
-		777E21FE279C93E100F0AD25 /* FFmpegKitiOS in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 777E21FC279C93E100F0AD25 /* FFmpegKitiOS */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		77E7D680279D214100A4FD88 /* FFmpegExampleMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7D67F279D214100A4FD88 /* FFmpegExampleMacApp.swift */; };
+		77E7D682279D214100A4FD88 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7D681279D214100A4FD88 /* ContentView.swift */; };
+		77E7D684279D214400A4FD88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77E7D683279D214400A4FD88 /* Assets.xcassets */; };
+		77E7D687279D214400A4FD88 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77E7D686279D214400A4FD88 /* Preview Assets.xcassets */; };
+		77E7D6A3279D2E1700A4FD88 /* FFmpegKitiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 77E7D6A2279D2E1700A4FD88 /* FFmpegKitiOS */; };
+		77E7D6B2279D375600A4FD88 /* FFmpegKitmacOS in Frameworks */ = {isa = PBXBuildFile; productRef = 77E7D6B1279D375600A4FD88 /* FFmpegKitmacOS */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +28,16 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				777E21FE279C93E100F0AD25 /* FFmpegKitiOS in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77E7D68F279D214C00A4FD88 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -41,6 +54,12 @@
 		777E21E7279C8A9600F0AD25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		777E21E9279C8A9600F0AD25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		777E21EF279C8AD000F0AD25 /* GDI-ffmpeg */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "GDI-ffmpeg"; path = ..; sourceTree = "<group>"; };
+		77E7D67D279D214100A4FD88 /* FFmpegExampleMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FFmpegExampleMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		77E7D67F279D214100A4FD88 /* FFmpegExampleMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFmpegExampleMacApp.swift; sourceTree = "<group>"; };
+		77E7D681279D214100A4FD88 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		77E7D683279D214400A4FD88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		77E7D686279D214400A4FD88 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		77E7D688279D214400A4FD88 /* FFmpegExampleMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FFmpegExampleMac.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +67,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				777E21FD279C93E100F0AD25 /* FFmpegKitiOS in Frameworks */,
+				77E7D6A3279D2E1700A4FD88 /* FFmpegKitiOS in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77E7D67A279D214100A4FD88 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77E7D6B2279D375600A4FD88 /* FFmpegKitmacOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +87,7 @@
 			children = (
 				777E21EF279C8AD000F0AD25 /* GDI-ffmpeg */,
 				777E21DA279C8A9600F0AD25 /* FFMpegExample */,
+				77E7D67E279D214100A4FD88 /* FFmpegExampleMac */,
 				777E21D9279C8A9600F0AD25 /* Products */,
 				777E21F0279C8CCC00F0AD25 /* Frameworks */,
 			);
@@ -69,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				777E21D8279C8A9600F0AD25 /* FFMpegExample.app */,
+				77E7D67D279D214100A4FD88 /* FFmpegExampleMac.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,6 +123,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		77E7D67E279D214100A4FD88 /* FFmpegExampleMac */ = {
+			isa = PBXGroup;
+			children = (
+				77E7D67F279D214100A4FD88 /* FFmpegExampleMacApp.swift */,
+				77E7D681279D214100A4FD88 /* ContentView.swift */,
+				77E7D683279D214400A4FD88 /* Assets.xcassets */,
+				77E7D688279D214400A4FD88 /* FFmpegExampleMac.entitlements */,
+				77E7D685279D214400A4FD88 /* Preview Content */,
+			);
+			path = FFmpegExampleMac;
+			sourceTree = "<group>";
+		};
+		77E7D685279D214400A4FD88 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				77E7D686279D214400A4FD88 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,10 +161,31 @@
 			);
 			name = FFMpegExample;
 			packageProductDependencies = (
-				777E21FC279C93E100F0AD25 /* FFmpegKitiOS */,
+				77E7D6A2279D2E1700A4FD88 /* FFmpegKitiOS */,
 			);
 			productName = FFMpegExample;
 			productReference = 777E21D8279C8A9600F0AD25 /* FFMpegExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		77E7D67C279D214100A4FD88 /* FFmpegExampleMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 77E7D68B279D214400A4FD88 /* Build configuration list for PBXNativeTarget "FFmpegExampleMac" */;
+			buildPhases = (
+				77E7D679279D214100A4FD88 /* Sources */,
+				77E7D67A279D214100A4FD88 /* Frameworks */,
+				77E7D67B279D214100A4FD88 /* Resources */,
+				77E7D68F279D214C00A4FD88 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FFmpegExampleMac;
+			packageProductDependencies = (
+				77E7D6B1279D375600A4FD88 /* FFmpegKitmacOS */,
+			);
+			productName = FFmpegExampleMac;
+			productReference = 77E7D67D279D214100A4FD88 /* FFmpegExampleMac.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -129,6 +199,9 @@
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					777E21D7279C8A9600F0AD25 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					77E7D67C279D214100A4FD88 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
 				};
@@ -147,6 +220,7 @@
 			projectRoot = "";
 			targets = (
 				777E21D7279C8A9600F0AD25 /* FFMpegExample */,
+				77E7D67C279D214100A4FD88 /* FFmpegExampleMac */,
 			);
 		};
 /* End PBXProject section */
@@ -162,6 +236,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		77E7D67B279D214100A4FD88 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77E7D687279D214400A4FD88 /* Preview Assets.xcassets in Resources */,
+				77E7D684279D214400A4FD88 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -172,6 +255,15 @@
 				777E21E0279C8A9600F0AD25 /* ViewController.swift in Sources */,
 				777E21DC279C8A9600F0AD25 /* AppDelegate.swift in Sources */,
 				777E21DE279C8A9600F0AD25 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77E7D679279D214100A4FD88 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77E7D682279D214100A4FD88 /* ContentView.swift in Sources */,
+				77E7D680279D214100A4FD88 /* FFmpegExampleMacApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +420,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -356,6 +449,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -366,6 +460,66 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		77E7D689279D214400A4FD88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FFmpegExampleMac/FFmpegExampleMac.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FFmpegExampleMac/Preview Content\"";
+				DEVELOPMENT_TEAM = T5K6Y7WRJ4;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.grantdavisinteractive.FFmpegExampleMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		77E7D68A279D214400A4FD88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FFmpegExampleMac/FFmpegExampleMac.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FFmpegExampleMac/Preview Content\"";
+				DEVELOPMENT_TEAM = T5K6Y7WRJ4;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.grantdavisinteractive.FFmpegExampleMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -390,12 +544,25 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		77E7D68B279D214400A4FD88 /* Build configuration list for PBXNativeTarget "FFmpegExampleMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77E7D689279D214400A4FD88 /* Debug */,
+				77E7D68A279D214400A4FD88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		777E21FC279C93E100F0AD25 /* FFmpegKitiOS */ = {
+		77E7D6A2279D2E1700A4FD88 /* FFmpegKitiOS */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FFmpegKitiOS;
+		};
+		77E7D6B1279D375600A4FD88 /* FFmpegKitmacOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FFmpegKitmacOS;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
